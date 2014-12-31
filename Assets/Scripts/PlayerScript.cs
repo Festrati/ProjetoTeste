@@ -18,7 +18,7 @@ public class PlayerScript : MonoBehaviour {
 	private void Awake () 
 	{
 		movement = Vector2.zero;
-		boxCollider = GetComponent<BoxCollider2D>();
+//		boxCollider = GetComponent<BoxCollider2D>();
 	
 	}
 
@@ -39,44 +39,35 @@ public class PlayerScript : MonoBehaviour {
 
 			if ( inputX > 0 ) {
 				movement = Vector2.right;
-//				var direction = movimento * velocidade * Time.deltaTime;
+				//				var direction = movement * velocidade * Time.deltaTime;
 				anim.SetInteger ("Direction", 1);
 			} 
 
 			if ( inputX < 0 ) {
 					movement = -Vector2.right;
-//					var direction = movimento * velocidade * Time.deltaTime;
+				//					var direction = movement * velocidade * Time.deltaTime;
 					anim.SetInteger ("Direction", 3);
 			}
 
 			if ( inputY > 0 ) {
 					movement = Vector2.up;
-//					var direction = movimento * velocidade * Time.deltaTime;
+				//					var direction = movement * velocidade * Time.deltaTime;
 					anim.SetInteger ("Direction", 0);
 			}
 
 			if ( inputY < 0 ) {
 					movement = -Vector2.up;
-//					var direction = movimento * velocidade * Time.deltaTime;
+				//					var direction = movement * velocidade * Time.deltaTime;
 					anim.SetInteger ("Direction", 2);
 			}
 
-			// force to zero movement vector
+			// force movement.vector to zero
 			if (!Input.anyKey){
 				anim.SetBool ("IsWalking", false);
 				movement = Vector2.zero;	
 			}
 
-//			hit = Physics2D.BoxCast (transform.position, boxCollider.size, 0, new Vector2 (0, direction.y), Mathf.Abs (direction.y));
 
-//			if (hit.collider == null) {
-//					transform.Translate (0, direction.y, 0);
-//			}
-//			hit = Physics2D.BoxCast (transform.position, boxCollider.size, 0, new Vector2 (direction.x, 0), Mathf.Abs (direction.x));
-//
-//			if (hit.collider == null) {
-//					transform.Translate (direction.x, 0, 0);
-//			}
 
 		} else {
 			anim.SetBool ("IsWalking", false);
